@@ -1,0 +1,63 @@
+<!-- Contact -->
+<div id="contact" class="section md-padding">
+
+  <!-- Container -->
+  <div class="container">
+
+    <!-- Row -->
+    <div class="row">
+
+      <!-- Section-header -->
+      <div class="section-header text-center mx-auto">
+        <h2 class="title">Contactez-nous</h2>
+      </div>
+      <!-- /Section-header -->
+
+      <!-- contact -->
+      <div>
+        <div class="contact">
+          <i class="fa fa-envelope"></i>
+          <h3>Email</h3>
+          <p>email@support.com</p>
+        </div>
+      </div>
+      <!-- /contact -->
+      <div class="col-md-6 col-md-offset-3 mx-auto " *ngIf="!messageSent">
+        <form class="contact-form" *ngIf="form" [formGroup]="form" (ngSubmit)="sendContactMessage()">
+
+          <div class="form-group " >
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Tapez votre email" formControlName="email" name="email">
+            <div *ngIf="form.controls.email.invalid && (form.controls.email.dirty || form.controls.email.touched)">
+              <div class="invalid-feedback" *ngIf="form.controls.email.errors?.required">Votre email est requis</div>
+              <div class="invalid-feedback" *ngIf="form.controls.email.errors?.email">Votre email est invalide</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+              <textarea class="form-control" id="message" placeholder="Tapez votre message" formControlName="message" name="message"></textarea>
+            <div *ngIf="form.controls.message.invalid && (form.controls.message.dirty || form.controls.message.touched)">
+              <div class="invalid-feedback" *ngIf="form.controls.message.errors?.required">Un message est requis</div>
+              <div class="invalid-feedback" *ngIf="form.controls.message.errors?.minlength">Votre message est trop court!</div>
+            </div>
+          </div>
+
+          <div class="form-group text-center" *ngIf="!messageSent">
+            <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Envoyer le message</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+    <div *ngIf="messageSent" id="submitSuccessMessage">
+      <div class="text-center text-white mb-3">
+        <div class="fw-bolder">Success!</div>
+        <p>je vous contacterai dès que possible</p>
+      </div>
+  </div>
+</div>
+
+
+</div>
+

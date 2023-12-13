@@ -1,0 +1,35 @@
+<!--portfolio-->
+<div id="portfolio" class="section md-padding bg-grey">
+
+  <!-- Container -->
+  <div class="container">
+
+    <!-- Row -->
+    <div class="row">
+
+      <!-- Section header -->
+      <div class="section-header text-center">
+        <h2 class="title">Nos réalisations</h2>
+      </div>
+      <!-- /Section header -->
+
+      <!-- Work -->
+      <div class="col-md-4 col-xs-6 work" *ngFor="let realisation of realisations">
+        <img class="img-responsive" src="{{realisation.picture}}" alt="">
+        <div class="overlay"></div>
+        <div class="work-content">
+          <span>{{realisation.name}}</span>
+<!--          <h3></h3>-->
+          <div class="work-link">
+            <a href="#"><i class="fa fa-external-link"></i></a>
+            <a class="lightbox" href="{{realisation.picture}}"><i class="fa fa-search"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Row -->
+
+  </div>
+  <!-- /Container -->
+
+</div>
